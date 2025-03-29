@@ -35,3 +35,4 @@ pollutantmean <- function(source, pollutantname, ids)
         ## Return mean of data without NA values
         mean(pollutant_values_all, na.rm = TRUE)
 }
+source <- "D:/Coursera/specdata"

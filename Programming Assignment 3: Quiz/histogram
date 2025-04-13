@@ -1,4 +1,4 @@
 hist(outcome[, 11],
-+      main = "30-Day Death Rate from Heart Attack",
-+      xlab = "Death Rate",
-+      col = "lightblue")
+     main = "30-Day Death Rate from Heart Attack",
+     xlab = "Death Rate",
+     col = "green")

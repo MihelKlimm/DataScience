@@ -1,0 +1,38 @@
+# Steps to create and save the tidy dataset:
+# Merging the training and test sets for both X_train and X_test.
+
+# Labeling the activity names from y_train and y_test.
+
+# Labeling the subject IDs from subject_train and subject_test.
+
+# Renaming the columns based on the features available.
+
+# Creating the tidy dataset and saving it as a .txt file.
+
+# Assuming you've already loaded necessary files, such as the training/test data
+
+# Step 1: Merge the train and test data for both features and labels
+X_all <- rbind(X_train, X_test)
+y_all <- rbind(y_train, y_test)
+
+# Step 2: Load the subject data for both train and test sets
+subject_train <- read.table("train/subject_train.txt")
+subject_test <- read.table("test/subject_test.txt")
+subject_all <- rbind(subject_train, subject_test)
+
+# Step 3: Load the feature names and assign them to the X_all columns
+features <- read.table("features.txt")
+colnames(X_all) <- features$V2
+
+# Step 4: Assign the column names to the y_all as activity labels
+activity_labels <- read.table("activity_labels.txt")
+y_all$V1 <- factor(y_all$V1, levels = 1:6, labels = activity_labels$V2)
+
+# Step 5: Create a tidy dataset
+tidy_data <- cbind(subject_all, y_all, X_all)
+
+# Step 6: Set column names for the tidy data (subject, activity, and features)
+colnames(tidy_data) <- c("Subject", "Activity", as.character(features$V2))
+
+# Step 7: Save the tidy dataset as a .txt file (without row names)
+write.table(tidy_data, "tidy_data.txt", row.name = FALSE)

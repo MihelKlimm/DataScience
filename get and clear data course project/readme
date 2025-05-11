@@ -1,0 +1,37 @@
+# Getting and Cleaning Data Project
+
+This repository contains the course project for the "Getting and Cleaning Data" course by Johns Hopkins University on Coursera.
+
+## Overview
+
+The purpose of this project is to demonstrate the ability to collect, clean, and process a dataset into a tidy format. The data used in this project comes from the Human Activity Recognition Using Smartphones Dataset provided by the UCI Machine Learning Repository.
+
+## Dataset
+
+The experiments have been carried out with a group of 30 volunteers performing six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone on the waist. The smartphone's embedded sensors captured 3-axial linear acceleration and angular velocity at a constant rate of 50Hz. The data was preprocessed and partitioned into training and test sets.
+
+## Files in This Repository
+
+- `run_analysis.R`: The R script that performs the following steps:
+  1. Merges the training and test sets to create one data set.
+  2. Extracts only the measurements on the mean and standard deviation for each measurement.
+  3. Uses descriptive activity names to name the activities in the data set.
+  4. Appropriately labels the data set with descriptive variable names.
+  5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+- `tidy_data.txt`: The tidy data set created by the `run_analysis.R` script. This file contains the average of each variable for each activity and each subject.
+
+- `README.md`: This file, providing an overview of the project and instructions.
+
+- `CodeBook.md`: *(Optional but recommended)* A codebook describing the variables, data, and transformations performed.
+
+## How to Run
+
+To recreate the tidy data set:
+
+1. Download and unzip the dataset from [this link](https://archive.ics.uci.edu/ml/datasets/human+activity+recognition+using+smartphones).
+2. Place the unzipped dataset in your working directory under `"UCI HAR Dataset"` or adjust the file paths in `run_analysis.R`.
+3. Run `run_analysis.R`. It will output `tidy_data.txt` in the working directory.
+
+```r
+source("run_analysis.R")
